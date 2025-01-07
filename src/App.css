@@ -10,9 +10,39 @@ body {
   padding: 0;
 }
 
-.container {
+.toast {
+  background-color: rgb(52, 72, 52);
+  margin:  auto;
+  width: 300px;
+  border-radius: 15px;
+  position: fixed;
+  left: 50%;
+  top: 10px;
+  transform: translate(-50%);
+  padding: 15px;
+  color: #fff;
+  display: grid;
+  gap: 10px;
+}
+
+.toast h4, 
+.toast h5 {
+  margin: 0;
+}
+
+.toast h5 {
+  font-size: 10px;
+}
+
+.icon-message {
+  display: flex;
+  gap: 5px;
+  font-size: 15px;
+}
+
+.form-container {
   width: 500px;
-  margin: 50px auto;
+  margin: 80px auto;
   padding: 25px;
   background-color: #fff;
   border-radius: 10px;
@@ -20,7 +50,7 @@ body {
   gap: 25px;
 } 
 
-.container h1 {
+.form-container h1 {
   font-size: 18px;
   margin: 0;
 }
