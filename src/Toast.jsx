@@ -6,7 +6,7 @@ export const Toast = () => {
       <img src="assets/images/icon-success-check.svg" alt="" />
       <h4>Message Sent!</h4>
     </div>
-    <h5>Thanks for completing this form, we'll be in touch soon!</h5>
+    <h5>Thanks for completing this form, we'll be in touch soon!!</h5>
   </div>
   )
 }
