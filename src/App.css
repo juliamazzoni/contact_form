@@ -77,6 +77,10 @@ body {
   cursor: pointer;
 }
 
+.form span {
+  margin: 0;
+}
+
 .firstName-lastName,
 .query-options {
   display: grid;
@@ -190,3 +194,6 @@ body {
   background-color: 'transparent';
 }
 
+.errors {
+  color: red;
+}
