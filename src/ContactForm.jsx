@@ -1,5 +1,6 @@
 import { useState } from "react";
 import validate from "./utils/validate";
+import { InputField } from "./InputField";
 
 export const ContactForm = ({setMessageSent}) => {
 
@@ -17,6 +18,10 @@ export const ContactForm = ({setMessageSent}) => {
     } else {
       setMessageSent(true)
       setErrors({})
+      setTimeout(() => {
+        setMessageSent(false)
+      }, 3000);
+      console.log(formData)
     }
   }
 
@@ -39,53 +44,18 @@ export const ContactForm = ({setMessageSent}) => {
         <form action="submit" onSubmit={handleSubmit} className="form">
 
           <div className="firstName-lastName">
-            <div className="first-name">
-              <label >First Name <span className="green">*</span></label>
-              <input type="text" name='firstName' onChange={handleOnChange} />
-              {errors.firstName && <span className="errors">{errors.firstName}</span>}
-            </div>
-
-            <div className="last-name">
-              <label >Last Name <span className="green">*</span></label>
-              <input type="text" name='lastName' onChange={handleOnChange} />
-              {errors.lastName && <span className="errors">{errors.lastName}</span>}
-            </div>
+            <InputField inputClassName="first-name" label="First Name" type="text" name="firstName" handleOnChange={handleOnChange} errors={errors.firstName}/>
+            <InputField inputClassName="last-name" label="Last Name" type="text" name="lastName" handleOnChange={handleOnChange} errors={errors.lastName}/>
           </div>
 
-          <div className="email-address">
-            <label >Email Address <span className="green">*</span></label>
-            <input type="email" name='email' onChange={handleOnChange} />
-            {errors.email && <span className="errors">{errors.email}</span>}
-          </div>
+          <InputField inputClassName="email-address" label="Email Address" type="email" name="email" handleOnChange={handleOnChange} errors={errors.email}/>
 
-          <div className="query-type">
-            <label >Query Type <span className="green">*</span></label>
+          <InputField inputClassName="query-type" label="Query Type" name="queryType" type="radio" radioOption={radioOption} handleOnChange={handleOnChange} errors={errors.queryType} handleGeneralEnquireClick={handleGeneralEnquireClick} handleSupportRequestClick={handleSupportRequestClick}/>
 
-            <div className="query-options">
-              <div className={radioOption === 'general' ? 'green-background' : 'transparent'}>
-                <input type="radio" name='queryType' value='general-enquire' onClick={handleGeneralEnquireClick} onChange={handleOnChange}  /> General Enquiry
-              </div>
-              <div className={radioOption === 'support' ? 'green-background' : 'transparent'}>
-                <input type="radio" name='queryType' value='support-request' onClick={handleSupportRequestClick} onChange={handleOnChange}  /> Support Request 
-              </div>
-              {errors.queryType && <span className="errors">{errors.queryType}</span>}
-            </div>
-          </div>
+          <InputField inputClassName="message" label=" Message" name="message" type="text" handleOnChange={handleOnChange} errors={errors.message}/>
 
-          <div className="message">
-            <label >Message <span className="green">*</span></label>
-            <textarea name="message" type='text' onChange={handleOnChange}  ></textarea>
-            {errors.message && <span className="errors">{errors.message}</span>}
-          </div>
-
-          <div>
-            <div className="checkbox">
-              <input type="checkbox" name="consent" onChange={handleOnChange} /> <p>I consent to being contacted by the team</p> <span className="green">*</span>
-            </div>
-            {errors.consent && <span className="errors">{errors.consent}</span>}
-          </div>
-          
-
+          <InputField inputClassName="checkbox" name="consent" type="checkbox" handleOnChange={handleOnChange} text="I consent to being contacted by the team" errors={errors.consent}/>
+        
           <button className="submit-button" type="submit" >Submit</button>
 
         </form>

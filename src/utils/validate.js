@@ -1,6 +1,5 @@
  
  export default function validate(formData) {
-  console.log(formData)
   const errors = {}
   if(!formData.firstName){
     errors.firstName = "First name is required."
