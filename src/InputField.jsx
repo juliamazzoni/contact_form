@@ -1,12 +1,24 @@
 
-export const InputField = ({inputClassName, label, name, handleOnChange, errors, type, text, radioOption, handleGeneralEnquireClick, handleSupportRequestClick }) => {
+export const InputField = ({inputClassName, label, name, value1, value2, option1, option2, handleOnChange, errors, type, text, formData }) => {
 
-  const generalEnquire = radioOption === 'general' ? 'green-background' : 'transparent'
-  const supportRequest = radioOption === 'support' ? 'green-background' : 'transparent'
-  
   return (
     <>
-    {inputClassName !== 'query-type' ?
+    {type === 'radio' ?
+
+    (<div className={inputClassName}>
+      <label >{label} <span className="green">*</span></label>
+      <div className="query-options">
+        <div className={formData[name] === value1 ? 'green-background' : 'transparent'}>
+          <input type={type} name={name} value={value1} onChange={handleOnChange}  /> {option1}
+        </div>
+        <div className={formData[name] === value2 ? 'green-background' : 'transparent'}>
+          <input type={type} name={name} value={value2} onChange={handleOnChange}  /> {option2}
+        </div>
+      </div>
+      {errors && <span className="errors">{errors}</span>}     
+    </div>)
+    
+    :
 
     (<div>
       <div className={inputClassName}>
@@ -17,28 +29,12 @@ export const InputField = ({inputClassName, label, name, handleOnChange, errors,
         <div>
         {text && <p>{text} <span className="green">*</span></p>}
         {inputClassName !== 'checkbox' && errors && <span className="errors">{errors}</span>}
-        </div>
-        
+        </div>        
       </div>
       {inputClassName === 'checkbox' && errors && <span className="errors">{errors}</span>}
-  </div>) 
-  
-  :
+    </div>)  
+    }
+    </>
 
-  (<div className={inputClassName}>
-  <label >{label} <span className="green">*</span></label>
-
-  <div className="query-options">
-    <div className={generalEnquire}>
-      <input type={type} name={name} value='general-enquire' onClick={handleGeneralEnquireClick} onChange={handleOnChange}  /> General Enquiry
-    </div>
-    <div className={supportRequest}>
-      <input type={type} name={name} value='support-request' onClick={handleSupportRequestClick} onChange={handleOnChange}  /> Support Request 
-    </div>
-    {errors && <span className="errors">{errors}</span>}
-  </div>
-</div>)
-  }
-  </>
   )
 }

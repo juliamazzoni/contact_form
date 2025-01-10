@@ -4,9 +4,10 @@ import { InputField } from "./InputField";
 
 export const ContactForm = ({setMessageSent}) => {
 
-  const [radioOption, setRadioOption] = useState('')
   const [formData, setFormData] = useState({})
   const [errors, setErrors] = useState({})
+
+  console.log(formData)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,12 +26,6 @@ export const ContactForm = ({setMessageSent}) => {
     }
   }
 
-  const handleGeneralEnquireClick = () => {
-    setRadioOption('general')
-  }
-  const handleSupportRequestClick = () => {
-    setRadioOption('support')
-  }
   const handleOnChange = (e) => {
     setFormData({...formData, [e.target.name]: e.target.value})
   }
@@ -44,15 +39,15 @@ export const ContactForm = ({setMessageSent}) => {
         <form action="submit" onSubmit={handleSubmit} className="form">
 
           <div className="firstName-lastName">
-            <InputField inputClassName="first-name" label="First Name" type="text" name="firstName" handleOnChange={handleOnChange} errors={errors.firstName}/>
-            <InputField inputClassName="last-name" label="Last Name" type="text" name="lastName" handleOnChange={handleOnChange} errors={errors.lastName}/>
+            <InputField inputClassName="input" label="First Name" type="text" name="firstName" handleOnChange={handleOnChange} errors={errors.firstName}/>
+            <InputField inputClassName="input" label="Last Name" type="text" name="lastName" handleOnChange={handleOnChange} errors={errors.lastName}/>
           </div>
 
-          <InputField inputClassName="email-address" label="Email Address" type="email" name="email" handleOnChange={handleOnChange} errors={errors.email}/>
+          <InputField inputClassName="input" label="Email Address" type="email" name="email" handleOnChange={handleOnChange} errors={errors.email}/>
 
-          <InputField inputClassName="query-type" label="Query Type" name="queryType" type="radio" radioOption={radioOption} handleOnChange={handleOnChange} errors={errors.queryType} handleGeneralEnquireClick={handleGeneralEnquireClick} handleSupportRequestClick={handleSupportRequestClick}/>
+          <InputField inputClassName="input" label="Query Type" name="radioTypeEnquires" value1="general-enquire" option1="General Enquire" value2="support-request" option2="Support Request" formData={formData} type="radio" handleOnChange={handleOnChange} errors={errors.radioTypeEnquires} />
 
-          <InputField inputClassName="message" label=" Message" name="message" type="text" handleOnChange={handleOnChange} errors={errors.message}/>
+          <InputField inputClassName="input" label=" Message" name="message" type="text" handleOnChange={handleOnChange} errors={errors.message}/>
 
           <InputField inputClassName="checkbox" name="consent" type="checkbox" handleOnChange={handleOnChange} text="I consent to being contacted by the team" errors={errors.consent}/>
         

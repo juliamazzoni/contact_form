@@ -88,11 +88,7 @@ body {
   gap: 10px;
 }
 
-.first-name, 
-.last-name,
-.email-address,
-.query-type,
-.message {
+.input {
   display: flex;
   flex-direction: column;
   gap: 10px;

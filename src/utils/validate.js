@@ -13,8 +13,8 @@
     errors.email = "Please enter a valid email address."
   }
 
-  if(!formData.queryType){
-    errors.queryType = "Please select a query type."
+  if(!formData.radioTypeEnquires){
+    errors.radioTypeEnquires = "Please select a query type."
   }
 
   if(!formData.message){
