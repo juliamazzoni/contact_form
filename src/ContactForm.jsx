@@ -7,8 +7,6 @@ export const ContactForm = ({setMessageSent}) => {
   const [formData, setFormData] = useState({})
   const [errors, setErrors] = useState({})
 
-  console.log(formData)
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validate(formData)
@@ -22,7 +20,6 @@ export const ContactForm = ({setMessageSent}) => {
       setTimeout(() => {
         setMessageSent(false)
       }, 3000);
-      console.log(formData)
     }
   }
 

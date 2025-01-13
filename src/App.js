@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
         {messageSent === true && <Toast />} 
-      <div>
+      <div >
         <ContactForm setMessageSent={setMessageSent} />
       </div>
     </div>

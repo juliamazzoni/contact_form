@@ -3,10 +3,14 @@
   /* border: 1px solid red; */
 }
 
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Edge */
+}
+
 body {
   background-color:  hsl(148, 38%, 91%);
   box-sizing: border-box;
-  margin: 0;
+  margin: 10px;
   padding: 0;
 }
 
@@ -40,14 +44,19 @@ body {
   font-size: 15px;
 }
 
+.container {
+  margin: auto;
+
+}
+
 .form-container {
-  width: 500px;
-  margin: 80px auto;
   padding: 25px;
   background-color: #fff;
   border-radius: 10px;
   display: grid;
   gap: 25px;
+  margin: auto;
+  max-width: 700px;
 } 
 
 .form-container h1 {
@@ -63,13 +72,13 @@ body {
 
 .form input {
   border-radius: 5px;
-  height: 30px;
+  height: 40px;
   border: 1px solid hsl(169, 82%, 27%);
-  padding-left: 20px;
+  text-indent: 20px;
 }
 
 .form input:focus,
-.message textarea:focus {
+.input textarea:focus {
   outline: 1px solid hsl(169, 82%, 27%);
 }
 
@@ -84,7 +93,7 @@ body {
 .firstName-lastName,
 .query-options {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 10px;
 }
 
@@ -92,7 +101,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 100%;
 }
 
 .query-options div {
@@ -107,6 +115,7 @@ body {
 
 .query-options input {
   appearance: none;
+  padding-left: 20px;
   height: 20px;
   border-radius: 50%;
   border: 1px solid hsl(150, 3%, 65%);
@@ -120,15 +129,15 @@ body {
   box-shadow: inset 0 0 0 4px hsl(0, 0%, 100%);
 }
 
-.message textarea {
-  height: 100px;
+.input textarea {
+  height: 150px;
   border-radius: 5px;
   border: 1px solid hsl(169, 82%, 27%);
   padding: 10px;
   resize: none;
 }
 
-.message textarea:hover {
+.input textarea:hover {
   cursor: pointer;
 }
 
@@ -150,7 +159,7 @@ body {
 }
 
 .checkbox span {
-  margin-left: 5px;
+  margin-left: 3px;
 }
 
 .checkbox div {
@@ -162,6 +171,7 @@ body {
 
 .checkbox input {
   display: flex;
+  padding: 10px;
   appearance: none; 
   height: 20px;
   outline: none;
@@ -180,7 +190,7 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-80%, -50%);
 }
 
 .green-background {
@@ -189,7 +199,7 @@ body {
 }
 
 .green {
-  color: hsl(169, 82%, 27%);;
+  color: hsl(169, 82%, 27%);
 }
 
 .transparent {
@@ -198,4 +208,15 @@ body {
 
 .errors {
   color: red;
+}
+
+@media (min-width: 375px){
+  
+  .firstName-lastName,
+  .query-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
 }

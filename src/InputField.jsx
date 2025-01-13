@@ -23,11 +23,11 @@ export const InputField = ({inputClassName, label, name, value1, value2, option1
     (<div>
       <div className={inputClassName}>
         {label && <label >{label} <span className="green">*</span></label>}
-        {inputClassName === 'message' ?
+        {name === 'message' ?
         <textarea name={name} type={type} onChange={handleOnChange}  ></textarea> :
         <input type={type} name={name} onChange={handleOnChange} />}
         <div>
-        {text && <p>{text} <span className="green">*</span></p>}
+        {text && <p>{text}<span className="green">*</span></p>}
         {inputClassName !== 'checkbox' && errors && <span className="errors">{errors}</span>}
         </div>        
       </div>
